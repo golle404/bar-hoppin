@@ -14,7 +14,6 @@
     "express": "^4.13.4",
     "express-session": "^1.13.0",
     "firebase": "^2.4.2",
-    "gulp-sass": "^2.3.1",
     "jade": "^1.11.0",
     "material-ui": "^0.14.4",
     "morgan": "^1.7.0",
@@ -25,7 +24,8 @@
     "react-dom": "^15.0.2",
     "react-tap-event-plugin": "^1.0.0",
     "request": "^2.72.0",
-    "reset-css": "^2.0.2011012603"
+    "reset-css": "^2.0.2011012603",
+    "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -38,6 +38,8 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-live-server": "0.0.29",
+    "gulp-sass": "^2.3.1",
+    "gulp-rimraf": "^0.2.0",
     "vinyl-source-stream": "^1.1.0"
   }
 }

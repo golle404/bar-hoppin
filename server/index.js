@@ -4,6 +4,7 @@ var session = require("express-session");
 var bodyParser = require("body-parser");
 var cookieParser = require("cookie-parser");
 var morgan = require("morgan");
+var favicon = require('serve-favicon');
 
 var passport = require("passport");
 var TwitterStrategy = require("passport-twitter").Strategy;
@@ -34,6 +35,7 @@ app.use("/", router);
 app.set('views', path.join(__dirname, '/views'));
 app.set("view engine", "jade");
 
+app.use(favicon(path.join(__dirname, '../public/favicon.ico')));
 // static routes
 app.use(express.static(path.join(__dirname, '../public')));
 

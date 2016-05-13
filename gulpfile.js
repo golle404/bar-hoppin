@@ -1,4 +1,5 @@
 var gulp = require("gulp");
+var clean = require("gulp-rimraf");
 var browserify = require("browserify");
 var babelify = require("babelify");
 var source = require("vinyl-source-stream");
@@ -7,6 +8,7 @@ var autoprefixer = require("gulp-autoprefixer");
 var liveServer = require("gulp-live-server");
 var browserSync = require("browser-sync").create();
 var reload = browserSync.reload;
+
 var server;
 
 gulp.task("live-server", function(){
@@ -62,4 +64,12 @@ gulp.task("scss", function(){
 	.pipe(sass())
 	.pipe(autoprefixer())
 	.pipe(gulp.dest("public/css"))
+})
+gulp.task("clean", function(){
+	return gulp.src(["deploy/server/**", "deploy/client/**", "deploy/package.json"], { read: false })
+	.pipe(clean());
+})
+gulp.task("deploy",["clean", "js", "scss"], function(){
+	gulp.src(["public/**/*", "public/*", "server/**/*", "package.json"],{base: "./"})
+	.pipe(gulp.dest("deploy"));	
 })
