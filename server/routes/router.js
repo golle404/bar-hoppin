@@ -12,19 +12,18 @@ router.get("/", function(req, res) {
 //////// api ////////////
 // search
 router.post("/api/search/:place", googlePlaces.search)
-
-//tootlge bar
-//router.post('/gotobar/:ref', db.gotobar);
-
+// user data
 router.post('/api/user', function(req, res){
 	res.json(req.user)
 });
+// bar data
 router.post('/api/bar-data/:ref', function(req, res){
 	var userId = req.user ? req.user.id : null;
 	db.barData(req.params.ref, userId, function(obj){
 		res.json(obj)
 	})
 });
+// bar rsvp
 router.post('/api/rspv/:ref', isLoggedIn, function(req, res){
 	db.rspv(req.params.ref, req.user.id, function(){
 		db.barData(req.params.ref, req.user.id, function(obj){

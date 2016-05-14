@@ -15,7 +15,7 @@ module.exports=React.createClass({
       				value={this.props.query} 
 					onChange={this.props.handleChange}
 					autoFocus="true" />
-  				<RaisedButton label="GO" primary={true} type="submit"/>
+  				<RaisedButton style={{marginLeft: "10px"}} label="GO" primary={true} type="submit"/>
 			</form>
 		);
 	}

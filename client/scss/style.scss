@@ -1,9 +1,11 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 @import "../../node_modules/reset-css/_reset.scss";
 *{
 	box-sizing: border-box;
 }
 body{
 	//background: #f00;
+	font-family: 'Roboto', sans-serif;
 }
 .main{
 	width: 100%;
@@ -34,9 +36,9 @@ body{
 .bar-list{
 	max-width: 600px;
 	margin: auto;
-	li{
+	.bar-item{
 		display: flex;
-		border: thin solid rgba(0,0,0,.1);
+		//border: thin solid rgba(0,0,0,.1);
 		padding: 4px;
 		margin-bottom: 4px;
 	}
@@ -46,7 +48,7 @@ body{
 		justify-content: center;
 		flex-grow: 1;
 		.bar-name{
-			font-size: 1.5em;
+			font-size: 1.4em;
 			padding: 4px;
 		}
 		.bar-address{

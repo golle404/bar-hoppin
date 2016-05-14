@@ -9,6 +9,7 @@ db.authWithCustomToken(config.token, function(error, auth){
 		console.log("conected to firebase");
 	}
 })
+
 var users = db.child("users");
 var bars = db.child("bars");
 
