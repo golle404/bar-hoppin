@@ -2,8 +2,8 @@
 free code camp project
 
 to-do:
-* logout
-* footer
+* ~~logout~~
+* ~~footer~~
 * left icon menu
 * searches ??
   

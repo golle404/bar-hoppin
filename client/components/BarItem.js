@@ -4,19 +4,17 @@ var React = require("react");
 var nanoajax = require("nanoajax");
 var IconButton = require("material-ui").IconButton;
 var Badge = require("material-ui").Badge;
-
-
-
 var Paper = require("material-ui").Paper;
 
-import ContentAddCircle from 'material-ui/lib/svg-icons/content/add-circle';
-import ContentRemoveCircle from 'material-ui/lib/svg-icons/content/remove-circle';
-import AlertError from 'material-ui/lib/svg-icons/alert/error';
-import SocialGroup from 'material-ui/lib/svg-icons/social/group'
+var ContentAddCircle = require('material-ui/lib/svg-icons/content/add-circle');
+var ContentRemoveCircle = require('material-ui/lib/svg-icons/content/remove-circle');
+var AlertError = require('material-ui/lib/svg-icons/alert/error');
+var SocialGroup = require('material-ui/lib/svg-icons/social/group');
 
-var red500 = require("material-ui").Styles.Colors.red500;
-var blue500 = require("material-ui").Styles.Colors.blue500;
-var orange500 = require("material-ui").Styles.Colors.orange500;
+
+var red500 = require("material-ui/lib/styles/colors").red500;
+var blue500 = require("material-ui/lib/styles/colors").blue500;
+var orange500 = require("material-ui/lib/styles/colors").orange500;
 
 
 module.exports=React.createClass({
@@ -113,9 +111,3 @@ module.exports=React.createClass({
 		);
 	}
 })
-/*
-
-<div className="badge">{this.state.goers} people going</div>
-
-*/
-

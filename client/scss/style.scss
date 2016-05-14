@@ -4,20 +4,18 @@
 	box-sizing: border-box;
 }
 body{
-	//background: #f00;
 	font-family: 'Roboto', sans-serif;
 }
 .main{
 	width: 100%;
 	display: flex;
 	flex-direction: column; 
+	min-height: 100vh;
 }
-.header{
-	min-height: 5vh;
+header{
 	background: #f004f4;
 }
 footer{
-	min-height: 5vh;
 	background: #00BCD4;
 	color: #fff;
 	display: flex;
@@ -25,11 +23,8 @@ footer{
     align-items: center;
 }
 .content{
-	min-height: 85vh;
 	flex-grow: 1;
 	flex-shrink: 0;
-	//min-width: 600px;
-	//margin: auto;
 }
 .search-form{
 	max-width: 600px;
@@ -42,9 +37,8 @@ footer{
 	margin: auto;
 	.bar-item{
 		display: flex;
-		//border: thin solid rgba(0,0,0,.1);
 		padding: 4px;
-		margin-bottom: 4px;
+		margin-bottom: 6px;
 	}
 	.bar-details{
 		display: flex;

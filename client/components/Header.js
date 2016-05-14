@@ -3,7 +3,12 @@
 var React = require("react");
 
 var AppBar = require("material-ui").AppBar; 
+
 var FlatButton = require("material-ui").FlatButton; 
+var IconMenu = require("material-ui").IconMenu; 
+var MenuItem = require("material-ui").MenuItem; 
+var IconButton = require("material-ui").IconButton; 
+var NavigationMenu = require('material-ui/lib/svg-icons/navigation/menu');
 
 var SvgIcon = require("material-ui").SvgIcon;
 var socialData = require('./svg/social-icons.js'); 
@@ -16,12 +21,12 @@ module.exports=React.createClass({
 		var title = "Bar Hoppin'";
 		if(this.props.user){
 			btnLabel = "Logout";
-			btnHref = "/auth/logout"
+			btnHref = "/logout"
 			title += " - welcome " + this.props.user.name
 		}
 		return(
 			<header>
-				<AppBar
+ 				<AppBar
 					title={title}
 					iconElementRight={
 							<FlatButton 
@@ -38,8 +43,35 @@ module.exports=React.createClass({
                                 		<path d={socialData.twitter.icon} />
                             	</SvgIcon>
                         	</FlatButton>
-					}/>
-			</header>
+					}
+					iconElementLeft={
+						<IconMenu
+							anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+							targetOrigin={{horizontal: 'left', vertical: 'top'}}
+							iconButtonElement={<IconButton><NavigationMenu /></IconButton>} >
+							<MenuItem primaryText="Refresh" />
+						      <MenuItem primaryText="Send feedback" />
+						      <MenuItem primaryText="Settings" />
+						      <MenuItem primaryText="Help" />
+						      <MenuItem primaryText="Sign out" />
+						</IconMenu>
+					} />
+ 			</header>
 		);
 	}
 })
+
+/*
+iconElementLeft={
+						<IconMenu
+							anchorOrigin={{horizontal: 'left', vertical: 'top'}}
+							targetOrigin={{horizontal: 'left', vertical: 'top'}}
+							iconButtonElement={<IconButton><NavigationMenu /></IconButton>} >
+							<MenuItem primaryText="Refresh" />
+						      <MenuItem primaryText="Send feedback" />
+						      <MenuItem primaryText="Settings" />
+						      <MenuItem primaryText="Help" />
+						      <MenuItem primaryText="Sign out" />
+						</IconMenu>
+					} 
+					*/

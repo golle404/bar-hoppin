@@ -35,7 +35,10 @@ router.post('/api/rspv/:ref', isLoggedIn, function(req, res){
 ///////////  oauth  ////////////////////
 // twitter
 router.get('/auth/twitter', passport.authenticate('twitter'), function(req, res) {});
-
+router.get('/logout', function(req, res){
+	req.logout();
+	res.redirect('/');
+})
 router.get('/auth/twitter/callback',
 	passport.authenticate('twitter', {
 		failureRedirect: '/'
