@@ -6,7 +6,8 @@ var BarItem = require("./BarItem.js");
 module.exports=React.createClass({
 	displayName: 'BarList',
 	render: function(){
-		var user = this.props.user
+		var user = this.props.user;
+		var dispatch = this.props.dispatch;
 		return(
 			<ul className="bar-list">
 				{this.props.data.map(function(v,i){
@@ -14,7 +15,8 @@ module.exports=React.createClass({
 						<BarItem 
 							key={i} 
 							data={v} 
-							user={user} />
+							user={user}
+							dispatch={dispatch} />
 					)
 				})}
 			</ul>

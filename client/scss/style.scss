@@ -72,8 +72,7 @@ body{
 	.bar-hoppers{
 		flex-grow: 0;
 		flex-shrink: 0;
-		//width: 100px;
-		//height: 100px;
+		padding: 0 8px;
 		align-self: flex-end;
 		display: flex;
 		flex-direction: column;
@@ -86,5 +85,13 @@ body{
 				color: red;
 			}
 		}
+	}
+}
+.snackbar{
+	&.added{
+		color: #00BCD4;
+	}
+	&.removed{
+		color: #FF4081;
 	}
 }

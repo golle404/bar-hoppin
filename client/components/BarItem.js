@@ -3,11 +3,17 @@
 var React = require("react");
 var nanoajax = require("nanoajax");
 var IconButton = require("material-ui").IconButton;
+var Badge = require("material-ui").Badge;
+
+
+
 var Paper = require("material-ui").Paper;
 
 import ContentAddCircle from 'material-ui/lib/svg-icons/content/add-circle';
 import ContentRemoveCircle from 'material-ui/lib/svg-icons/content/remove-circle';
 import AlertError from 'material-ui/lib/svg-icons/alert/error';
+import SocialGroup from 'material-ui/lib/svg-icons/social/group'
+
 var red500 = require("material-ui").Styles.Colors.red500;
 var blue500 = require("material-ui").Styles.Colors.blue500;
 var orange500 = require("material-ui").Styles.Colors.orange500;
@@ -19,6 +25,7 @@ module.exports=React.createClass({
 		return {goers: 0, rsvp: false};
 	},
 	componentWillMount: function(){
+		this.shouldDispatch = false;
 		this.updateData(this.props.data.id);
 	},
 	componentWillReceiveProps : function(nextProps){
@@ -30,11 +37,20 @@ module.exports=React.createClass({
 		if(code === 200){
 			var r = JSON.parse(rsp)
 			this.setState({goers: r.goers, rsvp: r.rsvp});
+			if(this.shouldDispatch){
+				this.props.dispatch(this.props.data.name, r.rsvp);
+				this.shouldDispatch = false;
+			}
 		}
 	},
 	onToggleRspv: function(){
-		var apiUrl = "api/rspv/" + this.props.data.id;
-		nanoajax.ajax({url: apiUrl, method:"POST"}, this.onBarData);
+		if(this.props.user){
+			var apiUrl = "api/rspv/" + this.props.data.id;
+			this.shouldDispatch = true;
+			nanoajax.ajax({url: apiUrl, method:"POST"}, this.onBarData);
+		}else{
+			return;
+		}
 	},
 	updateData: function(id){
 		var apiUrl = "api/bar-data/" + id;
@@ -74,15 +90,32 @@ module.exports=React.createClass({
 				<div className="bar-hoppers">
 					<IconButton
 						onClick={this.onToggleRspv}
-						disabled={disabled} 
+						disabled={false} 
 						tooltip={tooltip}
 						tooltipPosition="top-center">
 						{icon}
 					</IconButton>
-					<div className="badge">{this.state.goers} people going</div>
+					<Badge
+						style={{padding: 0}}
+						badgeContent={this.state.goers}
+						secondary={true}
+						badgeStyle={{top: -8, right: -4, fontSize: 12, width: 20, height: 20}}>
+							<IconButton 
+								tooltipPosition="top-center"
+								tooltip={this.state.goers + " people going"}
+								style={{padding: 0, height: 24, zIndex: 1000}}>
+								<SocialGroup />
+							</IconButton>
+				    </Badge>					
 				</div>
 			</Paper>
 			</li>
 		);
 	}
 })
+/*
+
+<div className="badge">{this.state.goers} people going</div>
+
+*/
+
