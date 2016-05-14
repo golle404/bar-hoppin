@@ -22,7 +22,7 @@ module.exports=React.createClass({
 		if(this.props.user){
 			btnLabel = "Logout";
 			btnHref = "/logout"
-			title += " - welcome " + this.props.user.name
+			title += " - welcome @" + this.props.user.name
 		}
 		return(
 			<header>

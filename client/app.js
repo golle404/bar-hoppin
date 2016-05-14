@@ -3,4 +3,4 @@ import ReactDom from "react-dom";
 
 import Main from "./components/Main.js";
 
-ReactDom.render(<Main />, document.getElementById("app"));
+ReactDom.render(<Main search={config}/>, document.getElementById("app"));

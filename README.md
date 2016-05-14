@@ -4,6 +4,6 @@ free code camp project
 to-do:
 * ~~logout~~
 * ~~footer~~
-* left icon menu
-* searches ??
+* left icon menu ???
+* ~~searches~~
   

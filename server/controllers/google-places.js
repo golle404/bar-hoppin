@@ -7,6 +7,7 @@ module.exports.search = function(req, res){
 	reqStr += "?query=bars+in+"
 	reqStr += req.params.place
 	reqStr += "&key=" + config.key;
+	req.session.search = req.params.place;
 	request.post(
 	    reqStr,
 	    function (error, response, body) {

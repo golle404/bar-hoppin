@@ -26,7 +26,9 @@ module.exports=React.createClass({
 		return(
 			<div className="main">
 				<Header user={this.state.user}/>
-				<Content user={this.state.user}/>
+				<Content 
+					user={this.state.user} 
+					search={this.props.search} />
 				<Footer/>
 			</div>
 		);

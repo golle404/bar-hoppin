@@ -12,11 +12,16 @@ module.exports=React.createClass({
 	displayName: 'Content',
 	getInitialState: function(){
 		return {
-			query: "belgrade",
+			query: "",
 			bars: [],
 			snackbarOpen: false,
 			snackbarMsg: ""
 		};
+	},
+	componentWillMount: function(){
+		if(this.props.search){
+			this.setState({query: this.props.search}, this.handleSearch)
+		}
 	},
 	handleChange: function(e){
 		this.setState({query: e.target.value})

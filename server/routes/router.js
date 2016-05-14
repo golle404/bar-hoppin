@@ -7,7 +7,8 @@ var router = express.Router();
 
 /// main route //////
 router.get("/", function(req, res) {
-	res.render("index");
+	var search = req.session.search || null;
+	res.render("index", {search: search});
 })
 //////// api ////////////
 // search
