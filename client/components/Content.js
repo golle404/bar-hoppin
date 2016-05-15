@@ -34,6 +34,7 @@ module.exports=React.createClass({
 		nanoajax.ajax({url: url, method: "POST"}, this.onSearchRecieved)
 	},
 	onSearchRecieved: function(code, response){
+		//console.log(code, response)
 		if(code === 200){
 			var bars = JSON.parse(response).results;
 		    this.setState({bars: bars});

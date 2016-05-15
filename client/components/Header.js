@@ -15,6 +15,9 @@ var socialData = require('./svg/social-icons.js');
 
 module.exports=React.createClass({
 	displayName: 'Header',
+	goToSource: function(){
+		window.location = "https://github.com/golle404/bar-hoppin";
+	},
 	render: function(){
 		var btnLabel = "Login";
 		var btnHref = "/auth/twitter";
@@ -22,7 +25,7 @@ module.exports=React.createClass({
 		if(this.props.user){
 			btnLabel = "Logout";
 			btnHref = "/logout"
-			title += " - welcome @" + this.props.user.name
+			title=<span className="app-title"><h1>Bar Hoppin </h1><p> - welcome </p><h4> @{this.props.user.name}</h4></span>
 		}
 		return(
 			<header>
@@ -46,32 +49,22 @@ module.exports=React.createClass({
 					}
 					iconElementLeft={
 						<IconMenu
-							anchorOrigin={{horizontal: 'left', vertical: 'top'}}
-							targetOrigin={{horizontal: 'left', vertical: 'top'}}
-							iconButtonElement={<IconButton><NavigationMenu /></IconButton>} >
-							<MenuItem primaryText="Refresh" />
-						      <MenuItem primaryText="Send feedback" />
-						      <MenuItem primaryText="Settings" />
-						      <MenuItem primaryText="Help" />
-						      <MenuItem primaryText="Sign out" />
+							anchorOrigin={{horizontal: 'middle', vertical: 'bottom'}}
+							targetOrigin={{horizontal: 'middle', vertical: 'top'}}
+							iconButtonElement={
+								<IconButton>
+									<NavigationMenu color={"#fff"} />
+								</IconButton>
+							} >
+								<MenuItem 
+									primaryText="About"
+									onTouchTap={this.props.aboutHandler} />
+								<MenuItem 
+									primaryText="Source"
+									onTouchTap={this.goToSource} />
 						</IconMenu>
 					} />
  			</header>
 		);
 	}
 })
-
-/*
-iconElementLeft={
-						<IconMenu
-							anchorOrigin={{horizontal: 'left', vertical: 'top'}}
-							targetOrigin={{horizontal: 'left', vertical: 'top'}}
-							iconButtonElement={<IconButton><NavigationMenu /></IconButton>} >
-							<MenuItem primaryText="Refresh" />
-						      <MenuItem primaryText="Send feedback" />
-						      <MenuItem primaryText="Settings" />
-						      <MenuItem primaryText="Help" />
-						      <MenuItem primaryText="Sign out" />
-						</IconMenu>
-					} 
-					*/

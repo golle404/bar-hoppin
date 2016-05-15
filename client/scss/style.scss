@@ -13,7 +13,19 @@ body{
 	min-height: 100vh;
 }
 header{
-	background: #f004f4;
+	width: 100%;
+	.app-title{
+		display: flex;
+		align-items: baseline;
+		h4{
+			font-size: 18px;
+			color: #212121;
+		}
+		p{
+			font-size: 18px;
+			margin: 0 4px;
+		}
+	}
 }
 footer{
 	background: #00BCD4;
@@ -23,17 +35,20 @@ footer{
     align-items: center;
 }
 .content{
+	width: 100%;
+	max-width: 600px;
+	margin: auto;
 	flex-grow: 1;
 	flex-shrink: 0;
 }
 .search-form{
-	max-width: 600px;
+	width: 100%;
 	margin: auto;
 	text-align: center;
 	padding: 10px 0;
 }
 .bar-list{
-	max-width: 600px;
+	width: 100%;
 	margin: auto;
 	.bar-item{
 		display: flex;
@@ -91,5 +106,36 @@ footer{
 	}
 	&.removed{
 		color: #FF4081;
+	}
+}
+
+.about{
+	a{
+		text-decoration: none;
+	    color: #FFFFFF;
+	    background: #00BCD4;
+	    padding: 4px;
+	    &:hover{
+	    	background: #FF4081;
+	    }
+	}
+	p{
+		padding: 8px;
+		&:last-child{
+			text-align: right;
+		}
+	}
+	.about-tools{
+		padding: 8px;
+		h3{
+			font-size: 1.2em;
+		}
+		ul{
+			padding-left: 40px;
+			li{
+				padding: 8px 0;
+				list-style: initial;
+			}
+		}
 	}
 }
