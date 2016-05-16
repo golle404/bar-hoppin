@@ -21,6 +21,9 @@ module.exports=React.createClass({
                 onRequestClose={this.props.aboutHandler}>
                 <div className="about">
                     <p>BarHoppin' App is my impementation of FreeCodeCamp <a href="https://www.freecodecamp.com/challenges/build-a-nightlife-coordination-app">"Build a Nightlife Coordination App"</a> challenge</p> 
+                    <p>With BarHoppin' App you can search for bars in your area, and see how meny people will go to sertan bars.
+                     You can login with your twitter account, and then you can add yourself to a bar to indicate you are going there tonight.
+                     You can also remove yourself if you change your mind.</p>
                     <p><a href="https://www.freecodecamp.com">FreeCodeCamp</a> is an open source community that helps you learn to code.</p>
                     <div className="about-tools">
                         <h3>Main tools and libraries used:</h3>
@@ -42,7 +45,7 @@ module.exports=React.createClass({
                             </li>
                         </ul>
                     </div>
-                    <p>Search results provided by <a href="https://developers.google.com/places/">Google Places API</a></p>
+                    <p>Search results provided by <a href="https://developer.foursquare.com/">Foursquare API</a></p>
                     <p><a href="https://github.com/golle404/bar-hoppin">Source</a> <a href="https://www.freecodecamp.com/golle404">FreeCodeCamp profile</a></p>
                 </div>
             </Dialog>

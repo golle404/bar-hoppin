@@ -9,7 +9,7 @@ module.exports=React.createClass({
 		var user = this.props.user;
 		var dispatch = this.props.dispatch;
 		return(
-			<ul className="bar-list">
+			<ul className={"bar-list " +this.props.className} >
 				{this.props.data.map(function(v,i){
 					return (
 						<BarItem 

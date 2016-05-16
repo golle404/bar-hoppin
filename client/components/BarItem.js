@@ -3,6 +3,7 @@
 var React = require("react");
 var nanoajax = require("nanoajax");
 var IconButton = require("material-ui").IconButton;
+var RaisedButton = require("material-ui").RaisedButton;
 var Badge = require("material-ui").Badge;
 var Paper = require("material-ui").Paper;
 
@@ -11,18 +12,14 @@ var ContentRemoveCircle = require('material-ui/lib/svg-icons/content/remove-circ
 var AlertError = require('material-ui/lib/svg-icons/alert/error');
 var SocialGroup = require('material-ui/lib/svg-icons/social/group');
 
-
-var red500 = require("material-ui/lib/styles/colors").red500;
-var blue500 = require("material-ui/lib/styles/colors").blue500;
-var orange500 = require("material-ui/lib/styles/colors").orange500;
-
-
+var cid = "?ref=GB2O1V4V0TJB22TA4DCOSNOIOY2X5OYDKVNWZZLOT01W32D2"
 module.exports=React.createClass({
 	displayName: 'BarItem',
 	getInitialState: function(){
 		return {goers: 0, rsvp: false};
 	},
 	componentWillMount: function(){
+		this.btnStyle = {fontSize: ".7em"}
 		this.shouldDispatch = false;
 		this.updateData(this.props.data.id);
 	},
@@ -58,42 +55,63 @@ module.exports=React.createClass({
 		var data = this.props.data;
 		var disabled = !this.props.user;
 		var photo;
-		var photoSrc = data.icon;
+		//var photoSrc = data.icon;
+		var catIcon = data.categories[0].icon
+		var photoSrc = catIcon.prefix.replace("ss3.4sqi.net","foursquare.com") + "64" + catIcon.suffix;
 		if(data.photos){
 			//photoSrc = "api/image/" + data.photos[0].photo_reference;
 		}
 		photo = <img src={photoSrc} />
-		var icon, iconColor, tooltip;
+		var icon, btnColor, tooltip;
 		if(this.state.rsvp){
-			icon = <ContentRemoveCircle color={red500}/>;
+			icon = <ContentRemoveCircle />;
+			btnColor = "#FF4081"
 			tooltip = "Remove Yourself";
 		}else {
-			icon = <ContentAddCircle color={blue500}/>;
+			btnColor = "#00BCD4"
+			icon = <ContentAddCircle />;
 			tooltip = "Add Yourself"
 		}
 		if(disabled){
-			icon = <AlertError color={orange500}/>
+			btnColor = "#00BCD4"
+			icon = <AlertError />
 			tooltip = "Login to RSVP";
 		}
 		return(
 			<li>
 			<Paper style={{width: "100%"}} className="bar-item">
-				<div className="bar-photo">
+				<div className="bar-photo" style={{backgroundColor:btnColor}}>
 					{photo}
 				</div>
 				<div className="bar-details">
-					<div className="bar-name">{data.name}</div>
-					<div className="bar-address">{data.formatted_address}</div>
+					<div className="bar-name"><a target="_blank" href={"http://foursquare.com/v/" + data.id + cid}>{data.name}</a></div>
+					<div className="bar-address">{data.location.formattedAddress.join(" - ")}</div>
 				</div>
 				<div className="bar-hoppers">
-					<IconButton
+					<RaisedButton
+						primary={true}
+						label={tooltip}
 						onClick={this.onToggleRspv}
-						disabled={false} 
-						tooltip={tooltip}
-						tooltipPosition="top-center">
-						{icon}
-					</IconButton>
+						backgroundColor={btnColor}
+						disabled={disabled}
+						labelStyle={this.btnStyle} 
+						icon={icon} />
 					<Badge
+						style={{padding: 0}}
+						badgeContent={this.state.goers}
+						secondary={true}
+						badgeStyle={{top: 4, right: -22, fontSize: 12, width: 20, height: 20, backgroundColor:btnColor}}>
+							<SocialGroup 
+								style={{width: "32px", height: "32px"}} />
+				    </Badge>					
+				</div>
+			</Paper>
+			</li>
+		);
+	}
+})
+
+/*<Badge
 						style={{padding: 0}}
 						badgeContent={this.state.goers}
 						secondary={true}
@@ -105,9 +123,13 @@ module.exports=React.createClass({
 								<SocialGroup />
 							</IconButton>
 				    </Badge>					
-				</div>
-			</Paper>
-			</li>
-		);
-	}
-})
+				    */
+/*
+					<IconButton
+						onClick={this.onToggleRspv}
+						disabled={false} 
+						tooltip={tooltip}
+						tooltipPosition="top-center">
+						{icon}
+					</IconButton>
+*/

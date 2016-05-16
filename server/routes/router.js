@@ -1,6 +1,7 @@
 var express = require("express");
 var passport = require("passport");
 var googlePlaces = require("../controllers/google-places.js");
+var foursquare = require("../controllers/foursquare.js");
 var db = require("../controllers/db.js");
 var request = require
 var router = express.Router();
@@ -11,8 +12,11 @@ router.get("/", function(req, res) {
 	res.render("index", {search: search});
 })
 //////// api ////////////
-// search
+///// search
+/// google places
 router.post("/api/search/:place", googlePlaces.search)
+////foursquare
+router.post("/api/foursquare/:place", foursquare.search)
 // user data
 router.post('/api/user', function(req, res){
 	res.json(req.user)

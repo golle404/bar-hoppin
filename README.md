@@ -9,4 +9,4 @@ BarHoppin' App is my impementation of FreeCodeCamp ["Build a Nightlife Coordinat
 * [Firebase](https://www.firebase.com/)
 * [React.js](https://facebook.github.io/react/)
 * [Material-ui](http://www.material-ui.com)
-  
+* Search results provided by [Foursquare API](https://developer.foursquare.com/)
