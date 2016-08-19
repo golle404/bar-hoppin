@@ -1,6 +1,8 @@
 # BarHoppin'
 
-BarHoppin' App is my impementation of FreeCodeCamp ["Build a Nightlife Coordination App"](https://www.freecodecamp.com/challenges/build-a-nightlife-coordination-app) challenge 
+[Live Preview](https://bar-hoppin.herokuapp.com/)
+
+BarHoppin' App is my impementation of FreeCodeCamp ["Build a Nightlife Coordination App"](https://www.freecodecamp.com/challenges/build-a-nightlife-coordination-app) challenge
 [FreeCodeCamp](https://www.freecodecamp.com) is an open source community that helps you learn to code.
 
 ### Main tools and libraries used:
